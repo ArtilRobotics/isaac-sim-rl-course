@@ -1,0 +1,5 @@
+https://docs.isaacsim.omniverse.nvidia.com/5.1.0/py/source/extensions/isaacsim.core.api/docs/index.html
+
+https://docs.isaacsim.omniverse.nvidia.com/5.1.0/python_scripting/environment_setup.html
+
+https://docs.isaacsim.omniverse.nvidia.com/5.1.0/python_scripting/core_api_overview.html
