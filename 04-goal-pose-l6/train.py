@@ -12,6 +12,8 @@ parser.add_argument("--seed",           type=int,  default=None,  help="Semilla 
 parser.add_argument("--video",          action="store_true", default=False, help="Grabar video durante training.")
 parser.add_argument("--video_length",   type=int,  default=200,   help="Duracion del video en pasos.")
 parser.add_argument("--video_interval", type=int,  default=2000,  help="Cada cuantos pasos grabar video.")
+parser.add_argument("--logger",         type=str,  default=None,  choices=["wandb", "tensorboard", "neptune"],
+                                                                   help="Logger a usar (default: el del cfg).")
 
 AppLauncher.add_app_launcher_args(parser)
 args_cli = parser.parse_args()
@@ -57,6 +59,8 @@ def main():
         agent_cfg.seed = args_cli.seed
 
     env_cfg.sim.device = args_cli.device if args_cli.device is not None else env_cfg.sim.device
+    if args_cli.logger is not None:
+        agent_cfg.logger = args_cli.logger
 
     # Directorio de logs
     log_root_path = os.path.abspath(os.path.join("logs", "rsl_rl", agent_cfg.experiment_name))
